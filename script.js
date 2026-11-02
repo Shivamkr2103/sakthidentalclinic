@@ -1,12 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile navigation
+
+  // 1. Mobile navigation
   const menuButton = document.querySelector(".menu-toggle");
   const navigation = document.querySelector(".nav-links");
 
   if (menuButton && navigation) {
     menuButton.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
+
       menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.textContent = isOpen ? "✕" : "☰";
     });
@@ -20,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Dynamic footer year
+  // 2. Dynamic footer year
   document.querySelectorAll("[data-year]").forEach(element => {
     element.textContent = new Date().getFullYear();
   });
 
-  // Header scroll effect
+  // 3. Header scroll effect
   const header = document.querySelector(".site-header");
 
   const updateHeader = () => {
@@ -37,27 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
-  // Prevent selecting past appointment dates
+  // 4. Appointment date validation
   const dateInput = document.querySelector("#date");
 
-  if (dateInput) {
+  const setMinimumDate = () => {
+    if (!dateInput) return;
+
     const today = new Date();
-    const localDate = [
-      today.getFullYear(),
-      String(today.getMonth() + 1).padStart(2, "0"),
-      String(today.getDate()).padStart(2, "0")
-    ].join("-");
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
 
-    dateInput.min = localDate;
-  }
+    dateInput.min = `${year}-${month}-${day}`;
+  };
 
-  // Appointment enquiry form demo
+  setMinimumDate();
+
+  // 5. Appointment enquiry form
   const contactForm = document.querySelector("#clinic-contact-form");
   const formStatus = document.querySelector("#form-status");
 
   if (contactForm && formStatus) {
+
     contactForm.addEventListener("submit", event => {
       event.preventDefault();
+
       formStatus.textContent = "";
 
       if (!contactForm.checkValidity()) {
@@ -66,18 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       formStatus.textContent =
-        "Your enquiry form is complete. This demo does not send or save your request. Please call the clinic to confirm your appointment.";
+        "Your enquiry form is complete. This demo does not send or save your request. Please contact the clinic directly to confirm your appointment.";
 
       formStatus.style.color = "#2875a5";
-      contactForm.reset();
 
-      if (dateInput) {
-        dateInput.min = [
-          new Date().getFullYear(),
-          String(new Date().getMonth() + 1).padStart(2, "0"),
-          String(new Date().getDate()).padStart(2, "0")
-        ].join("-");
-      }
+      contactForm.reset();
+      setMinimumDate();
     });
+
   }
+
 });
