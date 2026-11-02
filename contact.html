@@ -1,6 +1,241 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Contact Sakthi Dental Clinic in Hosur or request an appointment."><title>Contact Us | Sakthi Dental Clinic</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
-<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">✦</span><span>Sakthi Dental Clinic<small>CARE FOR EVERY SMILE</small></span></a><button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button><nav class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="treatments.html">Treatments</a><a href="faq.html">FAQs</a><a class="active" href="contact.html">Contact</a><a class="btn btn-small" href="#contact-form">Fix an Appointment <span>↗</span></a></nav></div></header>
-<main><section class="page-hero"><div class="container"><span class="eyebrow">LET’S CONNECT</span><h1>We’d love to <span>hear from you.</span></h1><p>Ask a question, learn more about a treatment or request an appointment.</p><div class="breadcrumbs"><a href="index.html">Home</a> / Contact</div></div></section>
-<section class="section"><div class="container contact-layout"><div class="form-panel" id="contact-form"><span class="eyebrow">SEND A MESSAGE</span><h2>How can we <span>help?</span></h2><p class="muted">Fields marked with * are required.</p><form id="clinic-contact-form"><div class="form-row"><label for="name">Your name *<input id="name" name="name" type="text" autocomplete="name" placeholder="Enter your full name" required minlength="2"></label><label for="email">Email address *<input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label></div><div class="form-row"><label for="phone">Phone number *<input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91 00000 00000" required pattern="[+()0-9\\s-]{7,18}" title="Enter a valid phone number"></label><label for="topic">What can we help with?<select id="topic" name="topic"><option value="">Choose an option</option><option>Appointment request</option><option>Treatment enquiry</option><option>General question</option></select></label></div><label for="message">Your message<textarea id="message" name="message" rows="5" placeholder="Tell us a little about your enquiry (optional)"></textarea></label><label class="consent"><input type="checkbox" id="consent" required> I agree to the use of my details to respond to this enquiry. *</label><button class="btn" type="submit">Submit message <span>↗</span></button><p class="form-note">Demo form: this front-end project does not transmit or store submissions. Connect a secure form service before launch.</p><div class="form-status" id="form-status" role="status" aria-live="polite"></div></form></div>
-<aside class="contact-panel"><span class="eyebrow light">REACH US</span><h2>We’re here to<br>make it easier.</h2><p>Contact the clinic directly for current availability, appointment confirmation and urgent dental advice.</p><div class="contact-items"><div><span class="contact-icon">⌖</span><span><small>VISIT US</small><strong>B2/8, SBM Layout, Anthivadi,<br>Hosur, Tamil Nadu 635109, India</strong><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=B2%2F8%2C%20SBM%20Layout%2C%20Anthivadi%2C%20Hosur%2C%20Tamil%20Nadu%20635109">Open in Maps ↗</a></span></div><div><span class="contact-icon">✉</span><span><small>EMAIL</small><a href="mailto:info@sakthidentalclinic.in">info@sakthidentalclinic.in</a></span></div><div><span class="contact-icon">☎</span><span><small>PHONE</small><a href="tel:+919862890897">+91 98628 90897</a><a href="tel:+919363298118">+91 93632 98118</a></span></div><div><span class="contact-icon">◷</span><span><small>CLINIC TIMINGS</small><strong>Daily: 9 AM – 7 PM*</strong><small>*Please confirm timings directly.</small></span></div></div></aside></div></section></main>
-<footer class="site-footer"><div class="container footer-grid"><div class="footer-about"><a class="brand brand-light" href="index.html"><span class="brand-mark">✦</span><span>Sakthi Dental Clinic<small>CARE FOR EVERY SMILE</small></span></a><p>Compassionate dental care for women, children and families in Hosur.</p></div><div><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About Us</a><a href="treatments.html">Treatments</a><a href="faq.html">FAQs</a></div><div><h4>Contact</h4><a href="mailto:info@sakthidentalclinic.in">info@sakthidentalclinic.in</a><a href="tel:+919862890897">+91 98628 90897</a></div><div><h4>Information</h4><a href="privacy.html">Privacy Policy</a><p>Daily: 9 AM – 7 PM*</p></div></div><div class="container footer-bottom"><span>© <span data-year></span> Sakthi Dental Clinic.</span><span>*Confirm current details directly with the clinic.</span></div></footer><script src="js/script.js"></script></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Sakthi Dental Clinic in Hosur to enquire about dental appointments and treatments.">
+  <title>Contact Us | Sakthi Dental Clinic</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container nav-container">
+    <a href="index.html" class="logo">Sakthi<span> Dental</span></a>
+
+    <button class="menu-toggle" aria-label="Toggle navigation"
+      aria-expanded="false" aria-controls="main-navigation">☰</button>
+
+    <nav class="nav-links" id="main-navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="treatments.html">Treatments</a>
+      <a href="faq.html">FAQs</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="#appointment" class="nav-cta">Book Appointment</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="contact-hero">
+    <div class="hero-orb orb-one"></div>
+    <div class="hero-orb orb-two"></div>
+
+    <div class="container contact-hero-content">
+      <span class="eyebrow">WE'RE HERE TO HELP</span>
+      <h1>Let's Make Your <span>Smile</span> Brighter.</h1>
+      <p>
+        Have a question or need an appointment? Contact Sakthi Dental Clinic
+        and our team will be happy to assist you.
+      </p>
+      <a href="#appointment" class="primary-btn">Request an Appointment <span>→</span></a>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">GET IN TOUCH</span>
+        <h2>We'd Love to <span>Hear From You</span></h2>
+        <p>Reach out to us using any of the contact options below.</p>
+      </div>
+
+      <div class="contact-cards">
+        <article class="contact-card">
+          <div class="contact-card-icon">⌖</div>
+          <h3>Visit Our Clinic</h3>
+          <p>B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=B2%2F8%2C%20SBM%20Layout%2C%20Anthivadi%2C%20Hosur%2C%20Tamil%20Nadu%20635109"
+             target="_blank" rel="noopener noreferrer">Open in Maps →</a>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-card-icon">✉</div>
+          <h3>Email Us</h3>
+          <p>Send us your questions and enquiries.</p>
+          <a href="mailto:info@sakthidentalclinic.in">info@sakthidentalclinic.in</a>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-card-icon">☎</div>
+          <h3>Call Our Clinic</h3>
+          <p>Speak with our team for general enquiries.</p>
+          <a href="tel:+919862890897">+91 98628 90897</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="appointment-section" id="appointment">
+    <div class="container appointment-layout">
+
+      <div class="appointment-intro">
+        <span class="eyebrow">YOUR JOURNEY STARTS HERE</span>
+        <h2>Request Your <span>Appointment</span></h2>
+        <p>
+          Complete the enquiry form with your preferred date and time.
+          Our team can follow up to discuss availability.
+        </p>
+
+        <div class="appointment-points">
+          <div><span>✓</span> Friendly clinic assistance</div>
+          <div><span>✓</span> Enquiries about available treatments</div>
+          <div><span>✓</span> Convenient appointment requests</div>
+        </div>
+
+        <div class="hours-card">
+          <span class="hours-icon">◷</span>
+          <div>
+            <strong>Clinic Hours</strong>
+            <p>Daily: 9:00 AM – 7:00 PM</p>
+            <small>Please confirm current timings before visiting.</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="appointment-form-card">
+        <div class="form-heading">
+          <span class="eyebrow">APPOINTMENT ENQUIRY</span>
+          <h3>Tell Us About Your Visit</h3>
+          <p>Fields marked * are required.</p>
+        </div>
+
+        <form id="clinic-contact-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name"
+                placeholder="Enter your name" autocomplete="name" required minlength="2">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone"
+                placeholder="Enter your phone number" autocomplete="tel"
+                pattern="[0-9+\-\s()]{8,18}" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email"
+                placeholder="you@example.com" autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label for="treatment">Treatment Interest *</label>
+              <select id="treatment" name="treatment" required>
+                <option value="">Select a treatment</option>
+                <option>General Dental Consultation</option>
+                <option>Dental Implants</option>
+                <option>Orthodontics</option>
+                <option>Teeth Whitening</option>
+                <option>Root Canal Treatment</option>
+                <option>Children's Dentistry</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="date">Preferred Date *</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+              <label for="time">Preferred Time *</label>
+              <select id="time" name="time" required>
+                <option value="">Choose a time</option>
+                <option>9:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 1:00 PM</option>
+                <option>1:00 PM – 3:00 PM</option>
+                <option>3:00 PM – 5:00 PM</option>
+                <option>5:00 PM – 7:00 PM</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">Additional Message</label>
+              <textarea id="message" name="message" rows="4"
+                placeholder="Tell us anything else we should know..."></textarea>
+            </div>
+          </div>
+
+          <label class="consent-row">
+            <input type="checkbox" id="consent" required>
+            <span>I agree to be contacted about this enquiry. *</span>
+          </label>
+
+          <button type="submit" class="submit-btn">
+            Submit Appointment Enquiry <span>→</span>
+          </button>
+
+          <p class="form-note">
+            This is a front-end demo form. It does not send or store appointment
+            requests. Please call the clinic to confirm an appointment.
+          </p>
+
+          <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="location-section">
+    <div class="container location-layout">
+      <div>
+        <span class="eyebrow">FIND OUR CLINIC</span>
+        <h2>Visit Sakthi Dental Clinic</h2>
+        <p>
+          We welcome patients and families looking for dental care in Hosur.
+          Use the map link to plan your visit.
+        </p>
+        <a class="primary-btn" target="_blank" rel="noopener noreferrer"
+          href="https://www.google.com/maps/search/?api=1&query=B2%2F8%2C%20SBM%20Layout%2C%20Anthivadi%2C%20Hosur%2C%20Tamil%20Nadu%20635109">
+          Get Directions →
+        </a>
+      </div>
+
+      <div class="map-card">
+        <div class="map-placeholder">
+          <span class="map-pin">⌖</span>
+          <h3>Sakthi Dental Clinic</h3>
+          <p>Anthivadi, Hosur, Tamil Nadu</p>
+          <a target="_blank" rel="noopener noreferrer"
+            href="https://www.google.com/maps/search/?api=1&query=B2%2F8%2C%20SBM%20Layout%2C%20Anthivadi%2C%20Hosur%2C%20Tamil%20Nadu%20635109">
+            View location on Google Maps ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="whatsapp-float" href="https://wa.me/919862890897"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Contact the clinic on WhatsApp">✆</a>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <p>© <span data-year></span> Sakthi Dental Clinic. All rights reserved.</p>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+</footer>
+</body>
+</html>
