@@ -1,85 +1,133 @@
 
-document.addEventListener("DOMContentLoaded", () => {
+/* =========================================
+   SAKTHI DENTAL CLINIC
+   COMPLETE WEBSITE JAVASCRIPT
+========================================= */
 
-  // 1. Mobile navigation
-  const menuButton = document.querySelector(".menu-toggle");
-  const navigation = document.querySelector(".nav-links");
+document.addEventListener("DOMContentLoaded", function () {
 
-  if (menuButton && navigation) {
-    menuButton.addEventListener("click", () => {
-      const isOpen = navigation.classList.toggle("open");
+    // MOBILE NAVIGATION
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector("#main-navigation");
 
-      menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.textContent = isOpen ? "✕" : "☰";
-    });
+    if (menuToggle && navigation) {
 
-    navigation.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navigation.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.textContent = "☰";
-      });
-    });
-  }
+        menuToggle.addEventListener("click", function () {
 
-  // 2. Dynamic footer year
-  document.querySelectorAll("[data-year]").forEach(element => {
-    element.textContent = new Date().getFullYear();
-  });
+            const isOpen = navigation.classList.toggle("open");
 
-  // 3. Header scroll effect
-  const header = document.querySelector(".site-header");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+            menuToggle.textContent = isOpen ? "✕" : "☰";
 
-  const updateHeader = () => {
-    if (header) {
-      header.classList.toggle("scrolled", window.scrollY > 30);
+        });
+
+        // Close navigation after clicking a link
+        navigation.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navigation.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
     }
-  };
 
-  updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
+    // AUTOMATIC COPYRIGHT YEAR
+    const yearElements = document.querySelectorAll("[data-year]");
 
-  // 4. Appointment date validation
-  const dateInput = document.querySelector("#date");
-
-  const setMinimumDate = () => {
-    if (!dateInput) return;
-
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
-
-    dateInput.min = `${year}-${month}-${day}`;
-  };
-
-  setMinimumDate();
-
-  // 5. Appointment enquiry form
-  const contactForm = document.querySelector("#clinic-contact-form");
-  const formStatus = document.querySelector("#form-status");
-
-  if (contactForm && formStatus) {
-
-    contactForm.addEventListener("submit", event => {
-      event.preventDefault();
-
-      formStatus.textContent = "";
-
-      if (!contactForm.checkValidity()) {
-        contactForm.reportValidity();
-        return;
-      }
-
-      formStatus.textContent =
-        "Your enquiry form is complete. This demo does not send or save your request. Please contact the clinic directly to confirm your appointment.";
-
-      formStatus.style.color = "#2875a5";
-
-      contactForm.reset();
-      setMinimumDate();
+    yearElements.forEach(function (element) {
+        element.textContent = new Date().getFullYear();
     });
 
-  }
+    // SCROLL REVEAL ANIMATION
+    const revealElements = document.querySelectorAll(
+        ".section-heading, .feature-card, .treatment-card, .mission-card, .team-card, .contact-card"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            function (entries, currentObserver) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("is-visible");
+
+                        currentObserver.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach(function (element) {
+
+            element.classList.add("reveal");
+            observer.observe(element);
+
+        });
+
+    }
+
+    // CONTACT FORM DEMO
+    const contactForm = document.querySelector("#clinic-contact-form");
+    const formStatus = document.querySelector("#form-status");
+
+    if (contactForm && formStatus) {
+
+        contactForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+
+                contactForm.reportValidity();
+                return;
+
+            }
+
+            formStatus.textContent =
+                "Your form is valid. This demo does not send your message. Please contact the clinic directly.";
+
+            formStatus.style.color = "#2875a5";
+
+            contactForm.reset();
+
+        });
+
+    }
+
+    // FAQ ACCORDION
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const answer = question.nextElementSibling;
+
+            if (!answer) return;
+
+            const isExpanded =
+                question.getAttribute("aria-expanded") === "true";
+
+            question.setAttribute("aria-expanded", String(!isExpanded));
+
+            answer.hidden = isExpanded;
+
+        });
+
+    });
 
 });
